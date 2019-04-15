@@ -81,6 +81,10 @@ static inline const char *mdss_mdp_format2str(u32 format)
 	return strings[format];
 }
 void mdss_mdp_dump(struct mdss_data_type *mdata);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60a305630ed2... msm: mdss: Fix compile errors when debugfs is disabled
 
 
 #ifdef CONFIG_DEBUG_FS
