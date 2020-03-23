@@ -2677,6 +2677,7 @@ resched:
 	queue_delayed_work(system_power_efficient_wq,
 		&chip->check_sanity_work,
 		msecs_to_jiffies(SANITY_CHECK_PERIOD_MS));
+out:
 }
 
 #define SRAM_TIMEOUT_MS			3000
@@ -3100,6 +3101,7 @@ static void slope_limiter_work(struct work_struct *work)
 	if (fg_debug_mask & FG_STATUS)
 		pr_info("Slope limit sts: %d val: %lld buf[%x %x] written\n",
 			status, val, buf[0], buf[1]);
+out:
 }
 
 static int lookup_ocv_for_soc(struct fg_chip *chip, int soc)
@@ -6600,6 +6602,8 @@ static void check_empty_work(struct work_struct *work)
 		if (chip->power_supply_registered)
 			power_supply_changed(&chip->bms_psy);
 	}
+
+out:
 }
 
 static void batt_profile_init(struct work_struct *work)
